@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import renderField from "../renderField";
 import validate from "../validations/validation";
 
 const FormFirst = (props) => {
@@ -7,8 +8,18 @@ const FormFirst = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <Field name="firstName" type="text" label="First Name" />
-        <Field name="lastName" type="text" label="First Name" />
+        <Field
+          name="firstName"
+          type="text"
+          component={renderField}
+          label="First Name"
+        />
+        <Field
+          name="lastName"
+          type="text"
+          component={renderField}
+          label="First Name"
+        />
       </div>
       <div>
         <button type="submit">Next</button>
@@ -19,4 +30,5 @@ const FormFirst = (props) => {
 
 export default reduxForm({
   form: "Form",
+  validate,
 })(FormFirst);
