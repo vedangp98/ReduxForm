@@ -1,9 +1,9 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import validate from "../validations/validation";
 import renderField from "../renderField";
+import validate from "../validations/validation";
 
-const rendeerError = ({ meta: { touched, error } }) =>
+const renderError = ({ meta: { touched, error } }) =>
   touched && error ? <span>{error}</span> : false;
 
 const FormSecond = (props) => {
@@ -24,13 +24,12 @@ const FormSecond = (props) => {
             {""}
             Female
           </label>
-          <Field name="sex" component={rendeerError} />
+          <Field name="sex" component={renderError} />
         </div>
       </div>
       <div>
-        <label>Age</label>
         <div>
-          <Field name="age" type="age" label="age" />
+          <Field name="age" type="age" component={renderField} label="Age" />
         </div>
       </div>
       <div>
@@ -45,5 +44,7 @@ const FormSecond = (props) => {
 
 export default reduxForm({
   form: "Form",
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
   validate,
 })(FormSecond);
