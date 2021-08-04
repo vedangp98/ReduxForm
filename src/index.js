@@ -8,6 +8,7 @@ import Form from "./components/Form";
 ReactDOM.render(
   <Provider store={store}>
     <div>
+      <h1>Wizard Example</h1>
       <Form onSubmit={showResults} />
     </div>
   </Provider>,

@@ -14,8 +14,13 @@ const validation = (values) => {
   if (!values.sex) {
     errors.sex = "Required";
   }
-  if (!values.favoriteColor) {
-    errors.favoriteColor = "Required";
+  if (!values.age) {
+    errors.age = "Required";
+  } else if (!/^[0-9\b]+$/i.test(values.age)) {
+    errors.age = "Numeric Age Only";
+  }
+  if (!values.favouriteColor) {
+    errors.favouriteColor = "Required";
   }
   return errors;
 };

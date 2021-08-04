@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import renderField from "../renderField";
 import validate from "../validations/validation";
+import renderField from "../renderField";
 
 const FormFirst = (props) => {
   const { handleSubmit } = props;
@@ -30,5 +30,7 @@ const FormFirst = (props) => {
 
 export default reduxForm({
   form: "Form",
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
   validate,
 })(FormFirst);

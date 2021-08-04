@@ -44,5 +44,7 @@ const FormSecond = (props) => {
 
 export default reduxForm({
   form: "Form",
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
   validate,
 })(FormSecond);

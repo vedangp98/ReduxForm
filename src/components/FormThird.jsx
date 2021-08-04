@@ -43,7 +43,7 @@ const FormThird = (props) => {
         </div>
       </div>
       <div>
-        <button type="button" className="previous" onClick={previousPage}>
+        <button type="button" onClick={previousPage}>
           Previous
         </button>
         <button type="submit" disabled={pristine || submitting}>
@@ -56,5 +56,7 @@ const FormThird = (props) => {
 
 export default reduxForm({
   form: "Form",
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
   validate,
 })(FormThird);
